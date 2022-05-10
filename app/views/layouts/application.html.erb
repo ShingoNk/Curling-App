@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CurlMeet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h0><%= link_to "CurlMeet", hello_index_path %></h0>
+      <div class="header-list">
+      <ul>
+        <% unless user_signed_in? %>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>　
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+        <% if user_signed_in? %>
+        <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>　
+          <% if current_user.admin? %>
+            <%= link_to "管理者ページ", users_adm_path %>
+          <% else %>
+            <%= link_to "お問合せ", hello_show_path %>
+          <% end %>
+        <% end %>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+
+  <footer>
+  <small>© 2022 Shingo Nakayama</small>
+</footer>
+
+
+</html>

@@ -1,0 +1,88 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :"名前" %><br />
+  <%= f.text_field :uname, autofocus: true %>
+</div>
+　
+  <div class="field">
+  <%= f.label :"性別" %><br />
+  <%= f.select :usex, [["男性","男性"],["女性","女性"]], include_blank: "選択してください", autofocus: true %>
+  </div>
+
+<div class="field">
+<%= f.label :"年齢" %><br />
+<%= f.text_field :uage, autofocus: true %> 歳
+</div>
+
+<div class="field">
+<%= f.label :"経験年数" %><br />
+<%= f.text_field :uyoe, autofocus: true %> 年
+</div>
+
+<div class="field">
+<%= f.label :"活動拠点(専用リンク)" %><br />
+<%= f.select :uhole, [["稚内みどりスポーツパーク","稚内みどりスポーツパーク"],["どうぎんカーリングスタジアム（札幌）","どうぎんカーリングスタジアム（札幌）"], ["アドヴィックス常呂","アドヴィックス常呂"],
+["妹背牛カーリングホール","妹背牛カーリングホール"],["サンピラーパーク(名寄)","サンピラーパーク(名寄)"],
+["アルゴグラフィックス北見","アルゴグラフィックス北見"],["カールプレックおびひろ","カールプレックおびひろ"],["みちぎんドリームスタジアム(青森)","みちぎんドリームスタジアム(青森)"],["盛岡市アイスリンク","盛岡市アイスリンク"],
+["軽井沢アイスパーク","軽井沢アイスパーク"],["カーリングホール御代田","カーリングホール御代田"], ["カールプレックスFuji(山中湖)","カールプレックスFuji(山中湖)"]], include_blank: "選択してください", autofocus: true %>
+</div>
+
+<div class="field">
+<%= f.label :"所属協会" %><br />
+<%= f.select :uassoci, [["帯広","帯広"],["妹背牛","妹背牛"],["北見","北見"],["稚内","稚内"],["札幌","札幌"],["青森","青森"],["宮城","宮城"],
+["岩手","岩手"],["山梨","山梨"],["東京","東京"],["神奈川","神奈川"],["群馬","群馬"],["千葉","千葉"],["御代田","御代田"],["軽井沢","軽井沢"], ["新潟","新潟"],
+["富山","富山"],["京都","京都"],["岡山","岡山"],["広島","広島"],["福岡","福岡"],["熊本","熊本"]], include_blank: "選択してください",autofocus: true %>
+</div>
+
+<div class="field">
+<%= f.label :"活動頻度" %><br />
+<%= f.select :ufrequ, [["週2回以上","週2回以上"],["週1回","週1回"],["月2~3回","月2~3回"],["月1回","月1回"],["2，3ヶ月に1回","2，3ヶ月に1回"],["半年に1回程度","半年に1回程度"]],include_blank: "選択してください",autofocus: true %>
+</div>
+
+<div class="field">
+<%= f.label :"チーム参加希望" %><br />
+<%= f.select :ustatus, [["はい","はい"],["いいえ","いいえ"]], autofocus: true %>
+</div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

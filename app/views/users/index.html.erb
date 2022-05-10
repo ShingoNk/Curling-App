@@ -1,0 +1,19 @@
+個人掲示板
+<br>
+<%= page_entries_info @users_want %>
+<div class="users-container">
+  <% @users_want.each do |t| %>
+    <div class="user">
+      名前:<%= link_to t.uname, user_path(t.id) %>
+      性別:<%= t.usex %> 
+      年齢:<%= t.uage %>歳
+      競技歴:<%= t.uyoe %>年
+      活動ホール:<%= t.uhole %>
+      所属協会:<%= t.uassoci %>
+      活動頻度:<%= t.ufrequ %>
+      
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @users_want %>

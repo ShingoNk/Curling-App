@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+    <% if current_user.admin? %>
+     <% sum = 0 %></p>
+     <% @users.each do |u| %>
+        <p>名前 : <%= u.uname %></p>
+        <p>性別 : <%= u.usex %></p>
+        <p>年齢 : <%= u.uage %></p>
+        <p>経験年数 : <%= u.uyoe %></p>
+        <p>活動ホール: <%= u.uhole %></p>
+        <p>所属協会: <%= u.uassoci %></p>
+        <p>活動頻度 : <%= u.ufrequ %></p>
+        <p>メールアドレス : <%= u.email %></p>
+        <br>
+      <% sum += 1 %>
+     <% end %>
+      <p>登録者合計：<%= sum %></p>
+    <% end %>
+<% end %>

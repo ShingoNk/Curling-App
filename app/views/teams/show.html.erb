@@ -1,0 +1,95 @@
+
+<h3> チーム詳細ページ</h3>
+ <div class="team">
+    <p>チーム名：<%= @team.tname %><p>
+    <p>種目：<%= @team.teve %><p>
+    <p>所属協会：<%= @team.tassoci %><p>
+    <p>活動拠点：<%= @team.thole %><p>
+    <p>活動頻度：<%= @team.tfrequ %><p>
+    <p>メンバー募集状況：<%= @team.tstatus %><p>
+    <p>チームからのコメント：<%= @team.tcomme %><p>
+    <p>代表者氏名：
+    <%= link_to @team.user.uname %>
+
+<h4> チームメンバー </h4>
+    <% if @lead.nil? %>
+      <p>リード：未定<p>
+    <% else %>
+    <p>リード：
+    <%= link_to @lead.user.uname, user_path(@lead.user.id) %>
+    <% end %>
+
+    <% if @second.nil? %>
+      <p>セカンド：未定<p>
+    <% else %>
+    <p>セカンド：
+    <%= link_to @second.user.uname, user_path(@second.user.id) %>
+    <% end %>
+
+    <% if @third.nil? %>
+      <p>サード：未定<p>
+    <% else %>
+    <p>サード：
+    <%= link_to @third.user.uname, user_path(@third.user.id) %>
+    <% end %>
+
+    <% if @forth.nil? %>
+      <p>フォース：未定<p>
+    <% else %>
+    <p>フォース：
+    <%= link_to @forth.user.uname, user_path(@forth.user.id) %>
+    <% end %>
+
+    <% if @alter1.nil? %>
+      <p>リザーブ1：なし<p>
+    <% else %>
+      <p>リザーブ1：
+      <%= link_to @alter1.user.uname, user_path(@alter1.user.id) %>
+    <% end %>
+
+    <% if @alter2.nil? %>
+      <p>リザーブ2：なし<p>
+    <% else %>
+      <p>リザーブ2：
+      <%= link_to @alter2.user.uname, user_path(@alter2.user.id) %>
+    <% end %>
+
+    <% if @coach.nil? %>
+      <p>コーチ：なし<p>
+    <% else %>
+      <p>コーチ：
+      <%= link_to @coach.user.uname, user_path(@coach.user.id) %>
+    <% end %>
+
+    <p>チーム写真：<%= image_tag @team.timage_url, size: "250x200" if @team.timage? %><p>
+    <p>作成日時：<%= @team.created_at %><p>
+
+  </div>
+
+  <% if user_signed_in? %>
+    <% if current_user.already_followed?(@team) %>
+      <%= link_to team_follow_path(@team), method: :delete do %>
+         <p>チーム所属申請を取り消す</p>
+      <% end %>
+  <% else %>
+      <%= link_to team_follows_path(@team), method: :post do %>
+         <p>チーム所属申請</p>
+      <% end %>
+  <% end %>
+
+<% end %>
+
+<% if user_signed_in? && current_user.id == @team.user_id %>
+<h2>所属申請メンバー(代表者限定)</h2>
+<% @team.followed_users.each do |user| %>
+<li>
+<%= link_to user.uname , user_path(user.id) %>
+<%= link_to "メンバー編集", edit_follow_path(@team,user.id) %> </li>
+
+
+<% end %>
+
+
+<% end %>
+
+  <%= link_to "Team一覧に戻る", teams_path %>

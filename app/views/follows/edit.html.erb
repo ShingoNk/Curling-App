@@ -1,0 +1,16 @@
+ <%= @follow_member.user.uname %>
+
+ <%= form_for @follow_member, url:edit_follow_url do |f| %>
+
+    <div class="field">
+    <%= f.label :ポジション %>
+    <%= f.select :position, [["リード","リード"],["セカンド","セカンド"],["サード","サード"],["フォース","フォース"],["リザーブ1","リザーブ1"],["リザーブ2","リザーブ2"],["コーチ","コーチ"],["未承認","未承認"]],include_blank: "選択してください",autofocus: true %>
+    </div>
+
+    <%= f.submit "変更する"  %>
+
+<% end %>
+
+
+
+
