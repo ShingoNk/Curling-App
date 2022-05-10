@@ -65,6 +65,10 @@ gem 'dotenv-rails'
 
 gem 'kaminari'
 
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
+
 group :production do
   gem 'pg'
 end
