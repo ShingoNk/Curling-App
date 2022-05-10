@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_094857) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "group_id"
     t.integer "team_id"
     t.index ["user_id"], name: "index_user_teams_on_user_id"
   end
