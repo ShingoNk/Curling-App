@@ -3,7 +3,7 @@ class CreateUserTeams < ActiveRecord::Migration[6.1]
     create_table :user_teams do |t|
 
       t.references  :user,  index: true, foreign_key: true
-      t.references  :group, index: true, foreign_key: true
+    
 
       t.timestamps
     end
