@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(uname: "管理者",
-            email: "shin51051@i.softbank.jp",
+            email: "shingo1113@icloud.com",
             uage: "22",
             uyoe: "0",
             uhole: "軽井沢アイスパーク",
