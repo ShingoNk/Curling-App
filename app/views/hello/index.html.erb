@@ -10,17 +10,69 @@
 
     <section id="first-block">
     <div class="title-container">
-    <div class="title-text">
-      CurlMeetとは・・・・<br>
-      ~ 全国のCulerがチームを組むことを目的とした <br>
-      個人，チームのためのホームページ ~
+  
+      
     </div>
     </div>
   </section>
-<br>
-メンバー募集掲示板（チーム用）
-<%= link_to "新規投稿ページへ", teams_new_path %>
-<%= link_to '一覧表示', teams_path %>
-<br>
-チーム加入希望掲示板（個人用）
-<%= link_to '一覧表示', users_path %>
+
+    <div class="hello-text">
+    CurlMeetとは・・・・<br><br>
+    チームが組めなくてカーリングを楽しめないという課題を解決するため<br>
+    作成したチームを組むためのマッチングサイトです
+    </div>
+
+  <section class="hello-link">
+
+    <% if user_signed_in? %>
+    <%= link_to user_path(current_user.id), class: "hello-ushowlink" do %>
+    
+    <div class="hello-left">
+    <img src="/assets/IMG_004.jpeg" alt="", class="hello-img">
+    <br>
+    <p class="hello-linktext">マイページ</P>
+    </div>
+    <% end %>
+    <% end %>
+
+    <% unless user_signed_in? %>
+    <%= link_to new_user_registration_path, class: "hello-ushowlink" do %>
+      <div class="hello-left">
+      <img src="/assets/IMG_004.jpeg" alt="", class="hello-img">
+      <br>
+      <p class="hello-linktext">新規登録</P>
+      </div>
+    <% end %>
+    <% end %>
+
+
+
+    <%= link_to users_path,class: "hello-uindexlink" do %>
+      <div class="hello-cleft">
+      <img src="/assets/IMG_005.jpeg" alt="", class="hello-img">
+      <br>
+      <p class="hello-linktext">選手掲示板</P>
+      </div>
+    <% end %>
+
+    
+    <%= link_to teams_path,class: "hello-tindexlink" do %>
+      <div class="hello-cright">
+      <img src="/assets/IMG_006.jpeg" alt="", class="hello-img">
+      <br>
+      <p class="hello-linktext">チーム一覧</P>
+      </div>
+    <% end %>
+
+
+    <%= link_to teams_new_path, class:"hello-tnewlink " do %>
+      <div class="hello-right">
+      <img src="/assets/IMG_007.jpeg" alt="", class="hello-img">
+      <br>
+      <p class="hello-linktext">チーム新規登録</p>
+      </div>
+    <% end %>
+
+  </section>
+    
+  

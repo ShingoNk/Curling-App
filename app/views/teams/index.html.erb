@@ -1,45 +1,51 @@
-<h3>Team掲示板</h3>
+<div class="title-index">チーム一覧</div>
 
 <br>
+
+<div class="serch-index">
 <%= page_entries_info @teams %>
 
-<h3>投稿を検索</h3>
-<%= form_tag({controller:"teams",action:"index"}, method: :get) do %>
-  種目検索:<%= select_tag :search, options_for_select({"男子4人制":"男子4人制", "女子4人制":"女子4人制", "男女混合4人制":"男女混合4人制",
-  "男女混合ダブルス":"男女混合ダブルス"}), include_blank: "選択してください" %>
+  <h3>投稿を検索</h3>
+    <%= form_tag({controller:"teams",action:"index"}, method: :get) do %>
+      種目検索:<%= select_tag :search, options_for_select({"男子4人制":"男子4人制", "女子4人制":"女子4人制", "男女混合4人制":"男女混合4人制",
+      "男女混合ダブルス":"男女混合ダブルス"}), include_blank: "選択してください" %>
 
-<%= form_tag({controller:"teams",action:"index"}, method: :get) do %>
-  活動ホール検索:<%= select_tag :searches, options_for_select({"稚内みどりスポーツパーク":"稚内みどりスポーツパーク", "どうぎんカーリングスタジアム（札幌）":"どうぎんカーリングスタジアム（札幌）", "アドヴィックス常呂":"アドヴィックス常呂",
-  "妹背牛カーリングホール":"妹背牛カーリングホール", "サンピラーパーク(名寄)":"サンピラーパーク(名寄)",
-  "アルゴグラフィックス北見":"アルゴグラフィックス北見", "カールプレックおびひろ":"カールプレックおびひろ", "みちぎんドリームスタジアム(青森)":"みちぎんドリームスタジアム(青森)", "盛岡市アイスリンク":"盛岡市アイスリンク",
-  "軽井沢アイスパーク":"軽井沢アイスパーク", "カーリングホール御代田":"カーリングホール御代田", "カールプレックスFuji(山中湖)":"カールプレックスFuji(山中湖)"}), include_blank: "選択してください" %>
+    <%= form_tag({controller:"teams",action:"index"}, method: :get) do %>
+      活動ホール検索:<%= select_tag :searches, options_for_select({"稚内みどりスポーツパーク":"稚内みどりスポーツパーク", "どうぎんカーリングスタジアム（札幌）":"どうぎんカーリングスタジアム（札幌）", "アドヴィックス常呂":"アドヴィックス常呂",
+      "妹背牛カーリングホール":"妹背牛カーリングホール", "サンピラーパーク(名寄)":"サンピラーパーク(名寄)",
+      "アルゴグラフィックス北見":"アルゴグラフィックス北見", "カールプレックおびひろ":"カールプレックおびひろ", "みちぎんドリームスタジアム(青森)":"みちぎんドリームスタジアム(青森)", "盛岡市アイスリンク":"盛岡市アイスリンク",
+      "軽井沢アイスパーク":"軽井沢アイスパーク", "カーリングホール御代田":"カーリングホール御代田", "カールプレックスFuji(山中湖)":"カールプレックスFuji(山中湖)"}), include_blank: "選択してください" %>
 
    <%= submit_tag '検索する'  %>
+    <% end %>
 <% end %>
-<% end %>
+</div>
 
+<br>
 
-
+<%= link_to "チーム新規登録", teams_new_path,class:"new-link"  %>
 <div class="teams-container">
   <% @teams.each do |t| %>
-    <div class="team">
-      チーム名：<%= t.tname %>
+    <%= link_to team_path(t.id),class: "show-link" do %>
+    <div class="team-index">
+      <p class="left-index">
+      <%= image_tag t.timage_url, size: "300x200" if t.timage? %>
+      </p>
+      <p class="right-index">
+      <%= t.tassoci %> <strong><%= t.tname %></strong>
+      <br><br>
+      <%= t.teve %>
       <br>
-      種目：<%= t.teve %>
+      活動拠点：<%= t.thole %>      
+      <br>  
+      <%= t.tstatus %>
       <br>
-      活動拠点：<%= t.thole %>
-      <br>
-      所属協会：<%= t.tassoci %>
-      <br>
-      メンバー募集状況：<%= t.tstatus %>
-      <br>
-      チームコメント：<%= t.tcomme %>
-      <br>
-      <%= link_to "詳細へ", team_path(t.id) %>
-      <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= link_to "編集する", edit_team_path(t.id) %>
-        <%= link_to "削除する", team_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？'}  %>
-      <% elsif current_user.admin? %>
+      チームコメント：
+      <br><%= t.tcomme %>
+      </p>
+      </div>
+    <% end %>
+      <% if current_user.admin? %>
         <%= link_to "管理者権限:削除", team_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？'}  %>
       <% end %>
 
@@ -53,6 +59,6 @@
 
  
   
-  <%= link_to "新規投稿へ", teams_new_path %>
+ 
 
 

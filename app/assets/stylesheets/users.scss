@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #first-block {
-    background-image: url(IMG_001.jpeg);
+    background-image: url(IMG_003.jpeg);
     background-size: cover;
     width: 100%;
-    height: 400px;
+    height: 600px;
     top: 40px;
   
     display: flex;
@@ -18,22 +18,155 @@
     height: 100%;
     width: 100%;
     background: rgba(255,255,255,0.7);
+    margin-top: 5%;
     
 }
 
-.title-text{
-    position: absolute;
+* {
+	box-sizing: border-box;
+  }
+  
 
-    height: 345px;
-    left: 23%;
-    top: 111px;
-    
 
-    font-size: 40px;
-    line-height: 48px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
+.title{
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 40px;
+	text-align: center;
+  }
+
+  div { text-align : center ;
+      }
+
+
+  .title-top{
+    text-align : center ;
+     margin-top: 10% ;
+
+  }
+
+  .form-text {
+    background: transparent;
+    border-bottom: solid 1px #82befa;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+    padding: 0.5em 0.4em;
+    transition: all 0.4s;
     color: #000000;
+    margin: 0.7rem 0;
+    text-align: center;
+  }
+  .form-text:hover {
+    background: #82befa;
+    transform: scale3d(1.06,1.06,1.06);
+  }
+
+  .form-short{
+    width: 15%;
+    background: transparent;
+    border-bottom: solid 1px #82befa;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+    padding: 0.5em 0.4em;
+    transition: all 0.4s;
+    color: #000000;
+    margin: 0.7rem 0;
+    text-align: center;
+  }
+  .form-short:hover {
+    background: #82befa;
+    transform: scale3d(1.06,1.06,1.06);
+  }
+
+  .actions {
+    background: transparent;
+    width: 15%;
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    border: solid 1px #1f8efd;
+    padding: 1em 0;
+    color: #000000;
+    transition: all 0.6s;
+  }
+  .actions:hover {
+    cursor:pointer;
+    background: #1f8efd;
+  }
+
+  .show-user0{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 8%;
+    padding: 0.5em 1em;
+    color: #232323;
+    background: #e3eef8;
+    border-left: solid 10px #007dfb;
+    align-items: center;
+  
+  }
+
+  .show-user1{
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 0.5em 1em;
+    color: #232323;
+    background: #e3eef8;
+    border-left: solid 10px #007dfb;
+    align-items: center;
+  
+  }
+
+  .show-user2{
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 0.5em 1em;
+    color: #232323;
+    background: #e2dddd;
+    border-left: solid 10px #007dfb;
+    align-items: center;
+  }
+
+  .edit-link {
+    margin-top: 50px;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 200px;
+	height: 60px;
+	color: #333;
+	font-size: 18px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: 0.3s;
+	background-color: #e3eef8;
+    color: #000000;
+	border: 3px solid #007dfb;
+  margin-left: auto;
+  margin-right: auto;
+    
 }
+
+.edit-link:hover {
+	background-color: #007dfb;
+    color: #ffffff ;
+	border: 1px solid #333;
+}
+
+.edit-link ::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -35px;
+	transform: translateY(-50%);
+	width: 70px;
+	height: 1px;
+	background-color: #333;
+}
+ 
+
+    

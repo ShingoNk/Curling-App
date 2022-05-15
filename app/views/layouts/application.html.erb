@@ -16,16 +16,16 @@
       <div class="header-list">
       <ul>
         <% unless user_signed_in? %>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>　
-        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "新規登録", new_user_registration_path, class:"header-link" %></li>
+        <li><%= link_to "ログイン", new_user_session_path, class:"header-link" %></li>
         <% end %>
         <% if user_signed_in? %>
-        <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>　
+        <li><%= link_to "マイページ", user_path(current_user.id), class:"header-link" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-link" %></li>
           <% if current_user.admin? %>
-            <%= link_to "管理者ページ", users_adm_path %>
+           <li> <%= link_to "管理者ページ", users_adm_path, class:"header-link" %></li>
           <% else %>
-            <%= link_to "お問合せ", hello_show_path %>
+           <li> <%= link_to "お問合せ", hello_show_path, class:"header-link" %><li>
           <% end %>
         <% end %>
       </ul>

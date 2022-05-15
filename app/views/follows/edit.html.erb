@@ -1,3 +1,4 @@
+ <div class="follow-edit">
  <%= @follow_member.user.uname %>
 
  <%= form_for @follow_member, url:edit_follow_url do |f| %>
@@ -10,6 +11,7 @@
     <%= f.submit "変更する"  %>
 
 <% end %>
+</div>
 
 
 
