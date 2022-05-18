@@ -5,54 +5,54 @@
     <div class="image"><%= image_tag @team.timage_url, size: "300x200" if @team.timage? %><br><br></div>
     <div class="team-container">
       <p class="left">
-        チームメンバー 
+         チームメンバー
         <% if @lead.nil? %>
           <br>リード：未定
         <% else %>
         <br>リード：
-        <%= link_to @lead.user.uname, user_path(@lead.user.id) %>
+        <%= link_to @lead.user.uname, user_path(@lead.user.id),class:"small-link2" %>
         <% end %>
 
         <% if @second.nil? %>
           <br>セカンド：未定
         <% else %>
         <br>セカンド：
-        <%= link_to @second.user.uname, user_path(@second.user.id) %>
+        <%= link_to @second.user.uname, user_path(@second.user.id) ,class:"small-link2" %>
         <% end %>
 
         <% if @third.nil? %>
           <br>サード：未定
         <% else %>
         <br>サード：
-        <%= link_to @third.user.uname, user_path(@third.user.id) %>
+        <%= link_to @third.user.uname, user_path(@third.user.id),class:"small-link2" %>
         <% end %>
 
         <% if @forth.nil? %>
           <br>フォース： 未定
         <% else %>
         <br>フォース：
-        <%= link_to @forth.user.uname, user_path(@forth.user.id) %>
+        <%= link_to @forth.user.uname, user_path(@forth.user.id),class:"small-link2" %>
         <% end %>
 
         <% if @alter1.nil? %>
           <br>リザーブ：なし
         <% else %>
           <br>リザーブ：
-          <%= link_to @alter1.user.uname, user_path(@alter1.user.id) %>
+          <%= link_to @alter1.user.uname, user_path(@alter1.user.id),class:"small-link2" %>
         <% end %>
 
         <% if @alter2.nil? %>
           <br>リザーブ：なし
         <% else %>
           <br>リザーブ：
-          <%= link_to @alter2.user.uname, user_path(@alter2.user.id) %>
+          <%= link_to @alter2.user.uname, user_path(@alter2.user.id),class:"small-link2" %>
         <% end %>
 
         <% if @coach.nil? %>
           <br>コーチ：なし
         <% else %>
           <br>コーチ：
-          <%= link_to @coach.user.uname, user_path(@coach.user.id) %>
+          <%= link_to @coach.user.uname, user_path(@coach.user.id),class:"small-link2" %>
         <% end %>
       </p>
       <p class="right">
@@ -61,7 +61,7 @@
         <br>活動頻度：<%= @team.tfrequ %>
         <br>メンバー募集状況：<%= @team.tstatus %>
         <br>代表者氏名：
-        <%= link_to @team.user.uname %>
+        <%= link_to @team.user.uname, user_path(@team.user.id),class:"small-link2" %>
         <br>作成日時：<%= @team.created_at %>
       </p>
     </div>

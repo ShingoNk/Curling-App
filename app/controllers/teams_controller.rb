@@ -4,8 +4,8 @@ def index
     @teams = Team.all
 end
 
-
 before_action :authenticate_user!
+
 
 def index
     if params[:search]  == nil && params[:searches] == nil
@@ -23,6 +23,7 @@ def index
 
 
 end
+
 
 def new
     @team = Team.new

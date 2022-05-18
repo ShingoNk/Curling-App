@@ -8,19 +8,93 @@
     width: 100%;
     height: 600px;
     top: 40px;
-  
+    margin-top: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
    }
 
-.title-container{
-    height: 100%;
-    width: 100%;
-    background: rgba(255,255,255,0.7);
-    margin-top: 5%;
-    
+.user-new{
+  background-image: url(IMG_008.jpeg);
+  background-size: cover;
+  width: 100%;
+  height: 1100px;
+  top: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.login {
+  background-image: url(IMG_003.jpeg);
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  top: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+
+.title-container-new{
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  
+}
+
+.title-container-login{
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  margin-top: 5%;
+  margin-bottom: 5%;    
+}
+
+.user-index-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3%;
+  align-content: space-between;
+  
+}
+
+.title-index-usershow{
+  height: 60px;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  background: #007dfb;
+  margin-top: 0;
+}
+
+
+.user-index{
+  position: relative;
+  width: 400px;
+  padding: 8px 19px;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #cde4ff;
+  border-top: solid 5px #5989cf;
+  border-bottom: solid 5px #5989cf;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.user-index:hover{
+  background-color: #007dfb;
+    border: solid 8px rgb(187, 237, 255) ;
+    color: #fff;   
+}
+
+
+
+
 
 * {
 	box-sizing: border-box;
@@ -46,8 +120,9 @@
   }
 
   .form-text {
+    width: 20%;
     background: transparent;
-    border-bottom: solid 1px #82befa;
+    border-bottom: solid 2px #52a9ff;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -64,9 +139,9 @@
   }
 
   .form-short{
-    width: 15%;
+    width: 10%;
     background: transparent;
-    border-bottom: solid 1px #82befa;
+    border-bottom: solid 2px #52a9ff;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -100,7 +175,7 @@
   .show-user0{
     margin-left: 30%;
     margin-right: 30%;
-    margin-top: 8%;
+    margin-top: 2%;
     padding: 0.5em 1em;
     color: #232323;
     background: #e3eef8;
@@ -167,6 +242,16 @@
 	height: 1px;
 	background-color: #333;
 }
- 
 
-    
+.unknown-link{
+  text-align: center;
+}
+
+.user-index .user-index-link{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} 

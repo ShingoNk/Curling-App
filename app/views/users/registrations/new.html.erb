@@ -1,23 +1,26 @@
-<h2 class="title-top">新規登録</h2>
+<section class="user-new">
+<div class="title-container-new">
 
+<div class="title-index">新規登録</div>
+<br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-text"%>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上が必要です)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class:"form-text" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワードの確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-text" %>
   </div>
 
@@ -30,17 +33,18 @@
   <%= f.label :"性別" %><br />
   <%= f.select :usex, [["男性","男性"],["女性","女性"]], include_blank: "選択してください", autofocus: true %>
   </div>
-
+  <br>  
   <div class="field">
   <%= f.label :"年齢" %><br />
-  <%= f.text_field :uage, autofocus: true %>
+  <%= f.text_field :uage, autofocus: true, class:"form-short" %>歳
   </div>
 
 <div class="field">
 <%= f.label :"経験年数" %><br />
-<%= f.text_field :uyoe, autofocus: true %>
+<%= f.text_field :uyoe, autofocus: true, class:"form-short" %>年
 </div>
 
+<br>
 <div class="field">
 <%= f.label :"活動拠点(専用リンク)"%><br />
 <%= f.select :uhole, [["稚内みどりスポーツパーク","稚内みどりスポーツパーク"],["どうぎんカーリングスタジアム（札幌）","どうぎんカーリングスタジアム（札幌）"], ["アドヴィックス常呂","アドヴィックス常呂"],
@@ -49,6 +53,7 @@
 ["軽井沢アイスパーク","軽井沢アイスパーク"],["カーリングホール御代田","カーリングホール御代田"], ["カールプレックスFuji(山中湖)","カールプレックスFuji(山中湖)"]], include_blank: "選択してください", autofocus: true %>
 </div>
 
+<br>
 <div class="field">
 <%= f.label :"所属協会" %><br />
 <%= f.select :uassoci, [["帯広","帯広"],["妹背牛","妹背牛"],["北見","北見"],["稚内","稚内"],["札幌","札幌"],["青森","青森"],["宮城","宮城"],
@@ -56,21 +61,23 @@
 ["富山","富山"],["京都","京都"],["岡山","岡山"],["広島","広島"],["福岡","福岡"],["熊本","熊本"]], include_blank: "選択してください",autofocus: true %>
 </div>
 
+<br>
 <div class="field">
 <%= f.label :"活動頻度" %><br />
 <%= f.select :ufrequ, [["週2回以上","週2回以上"],["週1回","週1回"],["月2~3回","月2~3回"],["月1回","月1回"],["2，3ヶ月に1回","2，3ヶ月に1回"],["半年に1回程度","半年に1回程度"]],include_blank: "選択してください",autofocus: true %>
 </div>
 
-
+<br>
 <div class="field">
 <%= f.label :"チーム参加希望" %><br />
 <%= f.select :ustatus, [["はい","はい"],["いいえ","いいえ"]] %>
 </div>
 
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<br>
+<%= f.submit "登録" , class:"new-link"%>
 <% end %>
+<br>
 
-<%= render "users/shared/links" %>
+</div>
+</section>

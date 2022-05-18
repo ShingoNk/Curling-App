@@ -12,12 +12,13 @@
 }
 
 .title-index{
-    margin-top: 7% ;
     height: 60px;
     font-size: 36px;
+    font-weight: 600;
     text-align: center;
     color: #ffffff;
     background: #007dfb;
+    margin-top: 6%;
 }
 
 .title-show{
@@ -259,3 +260,24 @@ a.follow-edit-link {
     margin-left:42%;
     margin-right: 15px;   
 }
+
+.form-text-long {
+    width: 40%;
+    height: 5%;
+    background: transparent;
+    border-bottom: solid 2px #52a9ff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+    padding: 0.5em 0.4em;
+    transition: all 0.4s;
+    color: #000000;
+    margin: 0.7rem 0;
+    text-align: center;
+  }
+  
+.form-text-long:hover {
+    background: #82befa;
+    transform: scale3d(1.06,1.06,1.06);
+  }

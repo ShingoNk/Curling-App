@@ -1,19 +1,22 @@
-個人掲示板
+<div class="title-index">個人掲示板</div>
 <br>
 <%= page_entries_info @users_want %>
-<div class="users-container">
+<section class="user-index-container">
   <% @users_want.each do |t| %>
-    <div class="user">
-      名前:<%= link_to t.uname, user_path(t.id) %>
-      性別:<%= t.usex %> 
-      年齢:<%= t.uage %>歳
-      競技歴:<%= t.uyoe %>年
-      活動ホール:<%= t.uhole %>
-      所属協会:<%= t.uassoci %>
+    <%= link_to user_path(t.id), class:"user-index-link" do%>
+    <div class="user-index">
+     <%= t.uassoci %> <strong><%= t.uname %></strong>
+      (<%= t.uage %>)
+      <br>
+      <%= t.usex %> 　競技歴:<%= t.uyoe %>年
+      <br>
+      拠点:<%= t.uhole %>
+      
       活動頻度:<%= t.ufrequ %>
       
     </div>
+    <% end %>
   <% end %>
-</div>
+</section>
 
 <%= paginate @users_want %>

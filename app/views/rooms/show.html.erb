@@ -1,37 +1,43 @@
 <div class="user-in">
 <% @entries.each do |e| %>
-    <h3><strong>
+    
     <% if current_user.id != e.user_id %>
-    <a href="/users/<%= e.user.id %>"><%= e.user.uname%></a></strong>さんとのDM</h3>
+    <div class="title-index"><a href="/users/<%= e.user.id %>" id="dm-title"><%= e.user.uname%></a></div>
     <% end %>
 
 <% end %>
 </div>
 
-<div class="dmMain">
-    <% @messages.each do |m| %>
-        <strong><%= m.body %></strong>
 
+    <% @messages.each do |m| %>
         <% if current_user.id != m.user_id %>
-        <small><%= m.user.uname %>さん</small>
+       
+       <div class="dm-left"> <small><%= m.user.uname %>さん</small> <p class="dm-you"><%= m.body %></p> <small><%= m.created_at %></small> </div>
+        
         <% else %>
-        <small>自分</small>
+        <div class="dm-right">
+         <p class="dm-my">
+         <%= m.body %>
+        </p>
+        <small>自分<%= m.created_at %></small>
         <% end %>
-        <small><%= m.created_at %></small><hr>
+        <small></small></div><br>
+        
 
 
     <% end %>
-
-    <%= form_for @message do |f| %>
-    <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
-    <%= f.hidden_field :room_id, :value => @room.id %>
     <br>
-    <%= f.submit "送信する" %>
+<div class="dmMain">
+    <%= form_for @message do |f| %>
+    <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 ,required:true %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    
+    <%= f.submit "送信する" ,class:"submit-link" %>
     <% end %>
 </div>
-
-<%= link_to "マイページへ戻る", user_path(current_user.id) %>
-
+<br><br>
+<%= link_to "マイページへ戻る", user_path(current_user.id), class:"new-link" %>
+<br>
 
 <style>
 .user-in{
@@ -42,6 +48,7 @@
 .dmMain{
     padding:30px;
     border:1px solid darkgray;
-    background-color:gainsboro;
+    background-color: #ffffff
+
 }
 </style>

@@ -1,3 +1,37 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#dm-title{
+    color: #fff; 
+}
+
+.dm-my{
+    background-color: aqua;
+    text-align: right;
+    margin-right: 3%;
+    display: inline-block;
+    margin-top: 5%;
+    border-radius: 20px;
+    padding: 0.3em 1.5em 0.3em 1.5em;
+}
+
+.dm-you{
+    background-color: rgb(207, 207, 207);
+    text-align: right;
+    margin-right: 5%;
+    display: inline-block;
+    margin-top: 5%;
+    border-radius: 20px;
+    padding: 0.3em 1.5em 0.3em 1.5em;
+
+}
+
+.dm-right{
+    text-align: right;
+    margin-right: 5%;
+}
+
+.dm-left{
+    text-align: left;
+    margin-left: 5%;
+}
