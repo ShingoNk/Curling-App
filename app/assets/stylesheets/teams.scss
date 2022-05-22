@@ -81,6 +81,8 @@ p{
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
   }
 
 .left{
@@ -281,3 +283,7 @@ a.follow-edit-link {
     background: #82befa;
     transform: scale3d(1.06,1.06,1.06);
   }
+
+.teamshow-text{
+    text-align: left;
+}

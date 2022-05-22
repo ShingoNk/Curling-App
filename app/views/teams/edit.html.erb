@@ -1,48 +1,62 @@
+<section class="user-new">
+<div class="title-container-new">
+
+<div class="title-index">チーム新規登録</div>
+
+<br>
+<br>
 <%= form_for @team do |f| %>
     <div class="field">
-    <%= f.label :team_name %>
-    <%= f.text_field :tname, autofocus: true %>
+    <%= f.label :チーム名 %><br>
+    <%= f.text_field :tname, autofocus: true, class:"form-text", required:"required" %>
     </div>
-    
+  <br>
     <div class="field">
-    <%= f.label :event %>
-    <%= f.select :teve, [["男子4人制","男子4人制"],["女子4人制","女子4人制"],["男女混合4人制","男女混合4人制"],["男女混合ダブルス","男女混合ダブルス"]],include_blank: "選択してください",autofocus: true %>
+    <%= f.label :種目 %><br>
+    <%= f.select :teve, [["男子4人制","男子4人制"],["女子4人制","女子4人制"],["男女混合4人制","男女混合4人制"],["男女混合ダブルス","男女混合ダブルス"]],autofocus: true, required:true %>
     </div>
-
+  <br>
     <div class="field">
-    <%= f.label :hole %>
-    <%= f.select :thole, [["稚内みどりスポーツパーク","稚内みどりスポーツパーク"],["どうぎんカーリングスタジアム（札幌）","どうぎんカーリングスタジアム（札幌）"], ["アドヴィックス常呂","アドヴィックス常呂"],
+    <%= f.label :頻度 %><br>
+    <%= f.select :tfrequ, [["週2回以上","週2回以上"],["週1回","週1回"],["月2~3回","月2~3回"],["月1回","月1回"],["2，3ヶ月に1回","2，3ヶ月に1回"],["半年に1回程度","半年に1回程度"]],include_blank: "選択してください",autofocus: true, required:true %>
+    </div>
+  <br>
+    <div class="field">
+    <%= f.label :活動拠点 %><br>
+     <%= f.select :thole, [["稚内みどりスポーツパーク","稚内みどりスポーツパーク"],["どうぎんカーリングスタジアム（札幌）","どうぎんカーリングスタジアム（札幌）"], ["アドヴィックス常呂","アドヴィックス常呂"],
     ["妹背牛カーリングホール","妹背牛カーリングホール"],["サンピラーパーク(名寄)","サンピラーパーク(名寄)"],
     ["アルゴグラフィックス北見","アルゴグラフィックス北見"],["カールプレックおびひろ","カールプレックおびひろ"],["みちぎんドリームスタジアム(青森)","みちぎんドリームスタジアム(青森)"],["盛岡市アイスリンク","盛岡市アイスリンク"],
-    ["軽井沢アイスパーク","軽井沢アイスパーク"],["カーリングホール御代田","カーリングホール御代田"], ["カールプレックスFuji(山中湖)","カールプレックスFuji(山中湖)"]], include_blank: "選択してください", autofocus: true %>
+    ["軽井沢アイスパーク","軽井沢アイスパーク"],["カーリングホール御代田","カーリングホール御代田"], ["カールプレックスFuji(山中湖)","カールプレックスFuji(山中湖)"]], include_blank: "選択してください", autofocus: true, required:true %>
     </div>
 
+  <br>
     <div class="field">
-    <%= f.label :associate %>
+    <%= f.label :所属協会 %><br>
     <%= f.select :tassoci, [["北海道","北海道"],["青森","青森"],["宮城","宮城"],["岩手","岩手"],
     ["山形","山形"],["東京","東京"],["神奈川","神奈川"],["群馬","群馬"],["千葉","千葉"],["山梨","山梨"],["長野","長野"], ["新潟","新潟"],
-    ["富山","富山"],["愛知","愛知"],["京都","京都"],["岡山","岡山"],["広島","広島"],["福岡","福岡"],["熊本","熊本"]],autofocus: true %>
+    ["富山","富山"],["愛知","愛知"],["京都","京都"],["岡山","岡山"],["広島","広島"],["福岡","福岡"],["熊本","熊本"]],autofocus: true, required:true %>
     </div>
 
-   
+  <br>
     <div class="field">
-    <%= f.label :frequency %>
-    <%= f.select :tfrequ, [["週2回以上","週2回以上"],["週1回","週1回"],["月2~3回","月2~3回"],["月1回","月1回"],["2，3ヶ月に1回","2，3ヶ月に1回"],["半年に1回程度","半年に1回程度"]],include_blank: "選択してください",autofocus: true %>
+    <%= f.label :チームコメント %><br>
+    <%= f.text_field :tcomme, autofocus: true, class:"form-text-long",required:"required"%>
     </div>
 
     <div class="field">
-    <%= f.label :event %>
-    <%= f.select :tstatus, [["チームメンバー募集中","チームメンバー募集中"],["現在メンバーは募集していません","現在メンバーは募集していません"]],include_blank: "選択してください",autofocus: true %>
+    チームメンバー募集状況
+    <br>
+    <%= f.select :tstatus, [["チームメンバー募集中","チームメンバー募集中"],["現在メンバーは募集していません","現在メンバーは募集していません"]],include_blank: "選択してください",autofocus: true, required:true %>
     </div>
-    
+  <br>
     <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_field :tcomme, autofocus: true %>
-    </div>
-    <div class="field">
-    <%= f.label :team_image %>
+    <%= f.label :チーム写真 %><br>
     <%= f.file_field :timage %>
     </div>
 
-    <%= f.submit "編集する" %>
-  <% end %>
+<br>
+  <%= f.submit "編集する" ,class:"new-link" %>
+<% end %>
+
+  </div>
+  </section>

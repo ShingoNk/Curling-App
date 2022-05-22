@@ -4,73 +4,73 @@
   <div class="title-show"><p class="show-ass"><%= @team.tassoci %></p><p class="show-name"><%= @team.tname %></p></div>
     <div class="image"><%= image_tag @team.timage_url, size: "300x200" if @team.timage? %><br><br></div>
     <div class="team-container">
-      <p class="left">
+      <div class="left">
          チームメンバー
         <% if @lead.nil? %>
-          <br>リード：未定
+          <p class="teamshow-text">リード　：未定</p>
         <% else %>
-        <br>リード：
-        <%= link_to @lead.user.uname, user_path(@lead.user.id),class:"small-link2" %>
+        <p class="teamshow-text">リード　：
+        <%= link_to @lead.user.uname, user_path(@lead.user.id),class:"small-link2" %> </p>
         <% end %>
 
         <% if @second.nil? %>
-          <br>セカンド：未定
+          <p class="teamshow-text">セカンド：未定</p>
         <% else %>
-        <br>セカンド：
-        <%= link_to @second.user.uname, user_path(@second.user.id) ,class:"small-link2" %>
+         <p class="teamshow-text">セカンド：
+        <%= link_to @second.user.uname, user_path(@second.user.id) ,class:"small-link2" %></p>
         <% end %>
 
         <% if @third.nil? %>
-          <br>サード：未定
+          <p class="teamshow-text">サード　：未定</p>
         <% else %>
-        <br>サード：
-        <%= link_to @third.user.uname, user_path(@third.user.id),class:"small-link2" %>
+          <p class="teamshow-text">サード　：
+        <%= link_to @third.user.uname, user_path(@third.user.id),class:"small-link2" %></p>
         <% end %>
 
         <% if @forth.nil? %>
-          <br>フォース： 未定
+          <p class="teamshow-text">フォース： 未定</p>
         <% else %>
-        <br>フォース：
-        <%= link_to @forth.user.uname, user_path(@forth.user.id),class:"small-link2" %>
+          <p class="teamshow-text">フォース：
+        <%= link_to @forth.user.uname, user_path(@forth.user.id),class:"small-link2" %></p>
         <% end %>
 
         <% if @alter1.nil? %>
-          <br>リザーブ：なし
+          <p class="teamshow-text">リザーブ：なし</p>
         <% else %>
-          <br>リザーブ：
-          <%= link_to @alter1.user.uname, user_path(@alter1.user.id),class:"small-link2" %>
+          <p class="teamshow-text">リザーブ：
+          <%= link_to @alter1.user.uname, user_path(@alter1.user.id),class:"small-link2" %></p>
         <% end %>
 
         <% if @alter2.nil? %>
-          <br>リザーブ：なし
+          <p class="teamshow-text">リザーブ：なし</p>
         <% else %>
-          <br>リザーブ：
-          <%= link_to @alter2.user.uname, user_path(@alter2.user.id),class:"small-link2" %>
+          <p class="teamshow-text">リザーブ：
+          <%= link_to @alter2.user.uname, user_path(@alter2.user.id),class:"small-link2" %></p>
         <% end %>
 
         <% if @coach.nil? %>
-          <br>コーチ：なし
+          <p class="teamshow-text">コーチ　：なし</p>
         <% else %>
-          <br>コーチ：
-          <%= link_to @coach.user.uname, user_path(@coach.user.id),class:"small-link2" %>
+          <p class="teamshow-text">コーチ　：
+          <%= link_to @coach.user.uname, user_path(@coach.user.id),class:"small-link2" %></p>
         <% end %>
-      </p>
-      <p class="right">
-        <br>種目：<%= @team.teve %>
-        <br>活動拠点：<%= @team.thole %>
-        <br>活動頻度：<%= @team.tfrequ %>
-        <br>メンバー募集状況：<%= @team.tstatus %>
-        <br>代表者氏名：
-        <%= link_to @team.user.uname, user_path(@team.user.id),class:"small-link2" %>
-        <br>作成日時：<%= @team.created_at %>
-      </p>
+      </div>
+      <div class="right">
+        <p class="teamshow-text">種目　　　：<%= @team.teve %></p>
+        <p class="teamshow-text">活動拠点　：<%= @team.thole %></p>
+        <p class="teamshow-text">活動頻度　：<%= @team.tfrequ %></p>
+        
+        <p class="teamshow-text">代表者氏名：
+        <%= link_to @team.user.uname, user_path(@team.user.id),class:"small-link2" %></p>
+        <p class="teamshow-text">作成日時　：<%= @team.created_at %></p>
+      </div>
     </div>
     
-
+    <br>
     
 
-
-    <div>チームからのコメント<br><%= @team.tcomme %></div><br>
+    <div><%= @team.tstatus %></div>
+    <div><br>チームからのコメント<br><%= @team.tcomme %></div><br>
 
     
 

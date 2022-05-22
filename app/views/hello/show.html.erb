@@ -1,5 +1,20 @@
-<div class="title-index">管理者マイページ</div>
-お問い合わせなどは下記リンクの管理者のマイページのDMからお願いします．
-<br>
-<%= link_to @hello.uname, user_path(@hello.id) %>
-<br>
+ <% if user_signed_in? %>
+   <% if current_user.adm? %>
+    <% sum = 0 %>
+    <% @user.each do |u|%>
+        <%= u.uname %>
+        <%= u.email %>
+        <% sum += 1 %>
+    <% end %>
+    <p>登録者合計：<%= sum %></p>
+        
+     
+
+   <% else %>
+    <div class="title-index">管理者マイページ</div>
+    お問い合わせなどは下記リンクの管理者のマイページのDMからお願いします．
+    <br>
+    <%= link_to @hello.uname, user_path(@hello.id) %>
+    <br>
+    <% end %>
+<% end %>

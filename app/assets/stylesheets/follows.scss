@@ -2,7 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.follow-edit{
+.follow-user-edit{
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.follow-edit-link2 {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100px;
+	height: 40px;
+	color: #333;
+	font-size: 14px;
+	font-weight: 100;
+	text-decoration: none;
+	transition: 0.3s;
+	background-color: #ffffff;
+    color: #000000;
+	border: 1px solid #007dfb;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%
+}
+
+.follow-edit-link2:hover {
+	background-color: #007dfb;
+    color: #ffffff ;
+	border: 1px solid #333;
 }

@@ -5,7 +5,7 @@
 <div class="serch-index">
 <%= page_entries_info @teams %>
 
-  <h3>投稿を検索</h3>
+  <h3>チーム検索</h3>
     <%= form_tag({controller:"teams",action:"index"}, method: :get) do %>
       種目検索:<%= select_tag :search, options_for_select({"男子4人制":"男子4人制", "女子4人制":"女子4人制", "男女混合4人制":"男女混合4人制",
       "男女混合ダブルス":"男女混合ダブルス"}), include_blank: "選択してください" %>
@@ -20,7 +20,8 @@
     <% end %>
 <% end %>
 </div>
-
+<br>
+<hr style="height: 4px; width: 100%; background-color: #000">
 <br>
 
 <%= link_to "チーム新規登録", teams_new_path,class:"new-link"  %>
@@ -40,13 +41,13 @@
       <br>  
       <%= t.tstatus %>
       <br>
-      チームコメント：
+      チームコメント
       <br><%= t.tcomme %>
       </p>
       </div>
     <% end %>
       <% if current_user.admin? %>
-        <%= link_to "管理者権限:削除", team_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？'}  %>
+        <%= link_to "管理者権限:削除", team_path(t.id), method: :delete, class:"delete-link", data: { confirm: '本当に削除しますか？'}  %>
       <% end %>
 
    <% end %>
