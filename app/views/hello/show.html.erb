@@ -1,5 +1,5 @@
  <% if user_signed_in? %>
-   <% if current_user.adm? %>
+   <% if current_user.admin? %>
     <% sum = 0 %>
     <% @user.each do |u|%>
         <%= u.uname %>
